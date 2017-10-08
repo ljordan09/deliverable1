@@ -1,0 +1,7 @@
+c:\users\ljcon\source\repos\contreras.del1\contreras.del1\obj\Debug\contreras.del1.csprojResolveAssemblyReference.cache
+c:\users\ljcon\source\repos\contreras.del1\contreras.del1\obj\Debug\contreras.del1.csproj.CoreCompileInputs.cache
+c:\users\ljcon\source\repos\contreras.del1\contreras.del1\bin\Debug\contreras.del1.exe.config
+c:\users\ljcon\source\repos\contreras.del1\contreras.del1\bin\Debug\contreras.del1.exe
+c:\users\ljcon\source\repos\contreras.del1\contreras.del1\bin\Debug\contreras.del1.pdb
+c:\users\ljcon\source\repos\contreras.del1\contreras.del1\obj\Debug\contreras.del1.exe
+c:\users\ljcon\source\repos\contreras.del1\contreras.del1\obj\Debug\contreras.del1.pdb
