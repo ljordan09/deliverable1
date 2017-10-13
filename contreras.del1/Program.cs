@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace contreras.del1
-{
+{     /*Dr. K. I will continue to make revisions and pushes to this program. I feel like im very close but it's not doing what I want it        to do yet. The validation component is giving me problems. I assure you that its not from lack of trying.  Any feedback would be        appreciated. */
+        
     class Program
     {
         static void Main(string[] args)
@@ -13,8 +14,8 @@ namespace contreras.del1
             int sum = SumDigits();
             int sum2 = SumDigits2();
 
-            //checks that the sum of the integers' digit values are equal
-            if (sum == sum2)
+            
+            if (sum == sum2)//checks that the sum of the integers' digit values are equal
             {
                 Console.WriteLine("True - The sums of both integers' digits are equal!");
             }
@@ -35,28 +36,26 @@ namespace contreras.del1
             input1 = int.Parse(Console.ReadLine());
             Console.WriteLine("The number you entered is {0}.", input1);
 
-            if (input1 / 10000 > 9)
-            {
-                Console.WriteLine("Integer is more than 5 digits");
-            }
-            else if (input1 / 10000 == 0)
-            {
+            if (input1 / 10000 > 9)//Checks that the input meets the five digit requirement
+                Console.WriteLine("Integer is more than 5 digits. Try Again");
+            else if (input1 / 10000 == 0)//Checks that the input meets the five digit requirement
                 Console.WriteLine("Integer is less than 5 digits");
-            }
+            
+
             else
             {
-
-
-                while (input1 != 0)
+                while (input1 != 0)//calculates sum of the digits
                 {
                     r = input1 % 10;
                     input1 = input1 / 10;
                     sum = sum + r;
                 }
             }
+
                 return sum;//returns a sum value to the main method to be checked by the if/else statement
             
         }
+
 
         public static int SumDigits2()
         //requests, recieves, and parses the users second integer input
@@ -66,14 +65,15 @@ namespace contreras.del1
             input2 = int.Parse(Console.ReadLine());
             Console.WriteLine("The number you entered is {0}.", input2);
 
-            if (input2 / 10000 > 9)
-                Console.WriteLine("Integer is more than 5 digits");
-            else if (input2 / 10000 == 0)
-                Console.WriteLine("Integer is less than 5 digits");
+            if (input2 / 10000 > 9)//Checks that the input meets the five digit requirement
+                Console.WriteLine("Integer is more than 5 digits. Try Again");
+            else if (input2 / 10000 == 0)//Checks that the input meets the five digit requirement
+                Console.WriteLine("Integer is less than 5 digits. Try Again");
+
             else
             {
 
-                while (input2 != 0)
+                while (input2 != 0)//calculates sum of the digits
                 {
                     q = input2 % 10;
                     input2 = input2 / 10;
@@ -81,6 +81,7 @@ namespace contreras.del1
                 }
 
             }
+
             return sum2;//returns a sum value to the main method to be checked by the if/else statement
 
         }
