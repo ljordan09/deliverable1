@@ -31,18 +31,31 @@ namespace contreras.del1
             //requests, recieves, and parses the users first integer input
         {
             int input1, sum = 0, r;
-            Console.WriteLine("Enter an integer : ");
+            Console.WriteLine("Enter a five digit integer : ");
             input1 = int.Parse(Console.ReadLine());
             Console.WriteLine("The number you entered is {0}.", input1);
 
-            while (input1 != 0)
+            if (input1 / 10000 > 9)
             {
-                r = input1 % 10;
-                input1 = input1 / 10;
-                sum = sum + r;
+                Console.WriteLine("Integer is more than 5 digits");
             }
-            return sum;//returns a sum value to the main method to be checked by the if/else statement
+            else if (input1 / 10000 == 0)
+            {
+                Console.WriteLine("Integer is less than 5 digits");
+            }
+            else
+            {
 
+
+                while (input1 != 0)
+                {
+                    r = input1 % 10;
+                    input1 = input1 / 10;
+                    sum = sum + r;
+                }
+            }
+                return sum;//returns a sum value to the main method to be checked by the if/else statement
+            
         }
 
         public static int SumDigits2()
@@ -53,14 +66,21 @@ namespace contreras.del1
             input2 = int.Parse(Console.ReadLine());
             Console.WriteLine("The number you entered is {0}.", input2);
 
-            while (input2 != 0)
+            if (input2 / 10000 > 9)
+                Console.WriteLine("Integer is more than 5 digits");
+            else if (input2 / 10000 == 0)
+                Console.WriteLine("Integer is less than 5 digits");
+            else
             {
-                q = input2 % 10;
-                input2 = input2 / 10;
-                sum2 = sum2 + q;
-            }
 
-            
+                while (input2 != 0)
+                {
+                    q = input2 % 10;
+                    input2 = input2 / 10;
+                    sum2 = sum2 + q;
+                }
+
+            }
             return sum2;//returns a sum value to the main method to be checked by the if/else statement
 
         }
