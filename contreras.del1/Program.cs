@@ -5,86 +5,94 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace contreras.del1
-{     /*Dr. K. I will continue to make revisions and pushes to this program. I feel like im very close but it's not doing what I want it        to do yet. The validation component is giving me problems. I assure you that its not from lack of trying.  Any feedback would be        appreciated. */
-        
+{
+
     class Program
     {
         static void Main(string[] args)
         {
-            int sum = SumDigits();
-            int sum2 = SumDigits2();
-
-            
-            if (sum == sum2)//checks that the sum of the integers' digit values are equal
-            {
-                Console.WriteLine("True - The sums of both integers' digits are equal!");
-            }
-
-            else
-            {
-                Console.WriteLine("False - The sums of both integers' digits are not equal");
-            }
-
+            SumDigits();
             Console.ReadLine();
         }
 
-        public static int SumDigits()
-            //requests, recieves, and parses the users first integer input
+        public static void SumDigits()
         {
-            int input1, sum = 0, r;
-            Console.WriteLine("Enter a five digit integer : ");
-            input1 = int.Parse(Console.ReadLine());
-            Console.WriteLine("The number you entered is {0}.", input1);
-
-            if (input1 / 10000 > 9)//Checks that the input meets the five digit requirement
-                Console.WriteLine("Integer is more than 5 digits. Try Again");
-            else if (input1 / 10000 == 0)//Checks that the input meets the five digit requirement
-                Console.WriteLine("Integer is less than 5 digits");
+            //Here is what i have after many hours spent last weekend trying to complete this deliverable. I feel like I'm close but it still isn't doing what I want it to do. I would be grateful for some guidance on this. I welcome your feedback positivity as I am beginning to become frustrated with my inability to get this working properly. What am I missing here? What concept should I gain a better understanding of? I have so many questions and I would be most grateful for positive feedback. I will continue to put in as many hours as necessary to get this deliverable complete ASAP.  
             
 
-            else
+
+            //User inputs first integer
+            //bool repeat = true;
+            Console.WriteLine("Please enter an integer: ");
+            string input1 = Console.ReadLine();
+            int count1 = 0;
+            for (int i = 0; i < input1.Length; i++)//validation: calculates the number of digits of the integer 
             {
-                while (input1 != 0)//calculates sum of the digits
+                count1++;
+            }
+
+            if (!int.TryParse(input1, out int result1))//validation: determines that the user inputs an integer 
+            {
+                while (result1 < 1)
                 {
-                    r = input1 % 10;
-                    input1 = input1 / 10;
-                    sum = sum + r;
+                    Console.WriteLine(input1 + " Invalid Entry: Please enter a valid integer");//displays an error message
+                    int.TryParse(Console.ReadLine(), out result1);
+                    
                 }
             }
 
-                return sum;//returns a sum value to the main method to be checked by the if/else statement
+
+            string input2 = Console.ReadLine();
+            int count2 = 0;
+            for (int i = 0; i < input2.Length; i++)
+            {
+                count2++;
+            }
+          
+                if (count1 != count2)//determines that the lengths of the two integers are equal
+                {
+                    Console.WriteLine("Invalid Entry: The two integers entered do not have the same number of digits.");//error message
+                    
+                }
             
-        }
-
-
-        public static int SumDigits2()
-        //requests, recieves, and parses the users second integer input
-        {
-            int input2, sum2 = 0, q;
-            Console.WriteLine("Enter another integer with the same number of digits : ");
-            input2 = int.Parse(Console.ReadLine());
-            Console.WriteLine("The number you entered is {0}.", input2);
-
-            if (input2 / 10000 > 9)//Checks that the input meets the five digit requirement
-                Console.WriteLine("Integer is more than 5 digits. Try Again");
-            else if (input2 / 10000 == 0)//Checks that the input meets the five digit requirement
-                Console.WriteLine("Integer is less than 5 digits. Try Again");
-
+                if (!int.TryParse(input2, out int result2))//validation: determines that the user inputs an integer 
+                {
+                    while (result2 < 1)
+                    {
+                        Console.WriteLine(input1 + " is not a valid entry. Please enter a valid integer");
+                        int.TryParse(Console.ReadLine(), out result2);
+                    }
+                }
+                    
             else
             {
-
-                while (input2 != 0)//calculates sum of the digits
+                //This code runs if all user inputs are validated
+                //digit sum component
+                List<int> ListOfInput1 = new List<int>();
+                List<int> ListOfInput2 = new List<int>();
                 {
-                    q = input2 % 10;
-                    input2 = input2 / 10;
-                    sum2 = sum2 + q;
+                    List<int> Input1Display = new List<int>();//isolates the first integer's digits into a list
+                    foreach (char c in input1)
+                    {
+                        Input1Display.Add(Int32.Parse(c.ToString()));
+                        Console.Write($"{c},");
+                    }
+
+                    List<int> Input2Display = new List<int>();//isolates the second integer's digits into a list
+                    foreach (char c in input2)
+                    {
+                        Input2Display.Add(Int32.Parse(c.ToString()));
+                        Console.Write($"{c},");
+                    }
+
+                    List<int> finalSum = new List<int>();// I think this loop increments the placeholders of both integers and adds their values. 
+
+                    for (int i = 0; i < ListOfInput1.Count; i++)
+                    {
+                        finalSum.Add(ListOfInput1[i] + ListOfInput2[i]);
+                    }
                 }
-
             }
-
-            return sum2;//returns a sum value to the main method to be checked by the if/else statement
-
         }
     }
 }
-
