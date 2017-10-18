@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Deliverable1
+namespace OMG
 {
     class Program
     {
@@ -12,6 +12,58 @@ namespace Deliverable1
         {
             UserPrompts();
             Console.ReadLine();
+        }
+ 
+        public static int DataCheck(String somethingNew, int? firstInput = null)//This function is designed to validate the data received from the user
+        {
+            int value = 0;
+            bool validate = false;
+            while (!validate)
+            {
+                Console.WriteLine(somethingNew);
+                if (!int.TryParse(firstInput, out value))//program crashes here i believe.
+                {
+                    Console.WriteLine("Invalid Entry: Please enter an integer");
+                }
+                else if (firstInput != null && (firstInput.ToString().Length != value.ToString().Length))
+                {
+                    Console.WriteLine("Invalid Entry: This integer has to have the same number of digits as the first " + firstInput.ToString().Length);
+                }
+                else
+                {
+                    validate = true;
+                }
+            }
+            return value;
+        }
+        private static bool Arithmetic(int firstInput, int secondInput)//This function is designed to perform the arithmetic of the program
+        {
+            int check1;
+            int check2;
+
+            int? sumNumber = null;
+            for (int i = 0; i <= firstInput.ToString().Length; ++i)
+            {
+                if (i == 0)
+                {
+                    check1 = firstInput % 10;
+                    check2 = secondInput % 10;
+                    sumNumber = check2 + check1;
+                }
+                else
+                {
+                    check1 = (firstInput) % 10;
+                    check2 = (secondInput) % 10;
+                    if (!(sumNumber != null && sumNumber == (check2 + check1)))
+                    {
+                        return false;
+                    }
+                }
+                firstInput = firstInput / 10;
+                secondInput = secondInput / 10;
+
+            }
+            return true;
         }
 
         public static void UserPrompts()// This function is designed to gain information from the user
@@ -53,57 +105,5 @@ namespace Deliverable1
             Console.ReadKey();
         }
 
-        public static int DataCheck(String somethingNew, int? firstInput = null)//This function is designed to validate the data received from the user
-        {
-            int value = 0;
-            bool validate = false;
-            while (!validate)
-            {
-                Console.WriteLine(somethingNew);
-                if (!int.TryParse(firstInput, out value))//program crashes here i believe.
-                {
-                    Console.WriteLine("Invalid Entry: Please enter an integer");
-                }
-                else if (firstInput != null && (firstInput.ToString().Length != value.ToString().Length))
-                {
-                    Console.WriteLine("Invalid Entry: This integer has to have the same number of digits as the first " + firstInput.ToString().Length);
-                }
-                else
-                {
-                    validate = true;
-                }
-
-            }
-            return value;
-        }
-        private static bool Arithmetic(int firstInput, int secondInput)//This function is designed to perform the arithmetic of the program
-        {
-            int check1;
-            int check2;
-
-            int? sumNumber = null;
-            for (int i = 0; i <= firstInput.ToString().Length; ++i)
-            {
-                if (i == 0)
-                {
-                    check1 = firstInput % 10;
-                    check2 = secondInput % 10;
-                    sumNumber = check2 + check1;
-                }
-                else
-                {
-                    check1 = (firstInput) % 10;
-                    check2 = (secondInput) % 10;
-                    if (!(sumNumber != null && sumNumber == (check2 + check1)))
-                    {
-                        return false;
-                    }
-                }
-                firstInput = firstInput / 10;
-                secondInput = secondInput / 10;
-
-            }
-            return true;
-        }
-    }
+    }           
 }
